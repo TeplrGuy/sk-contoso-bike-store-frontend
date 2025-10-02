@@ -1,50 +1,45 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+```markdown
+# Contoso Bike Store — Web App Constitution
+
+This document lists the minimal, non-technical and technical requirements for the Contoso Bike Store web application based on the project template. Keep it simple and focused.
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity
+Keep the UI and code straightforward. Prefer small components, clear responsibilities, and minimal external dependencies.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. User-First
+Deliver a responsive, accessible and fast web experience across desktop and mobile. Prioritize essential user journeys (browse, search, view product, add to cart, checkout).
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Secure by Default
+Protect user data and authentication flows. Apply secure headers, validate inputs, and avoid storing secrets in the client.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Testable
+Automated tests must cover core UI behaviours and critical flows. Unit tests for components and one end-to-end smoke test for the main purchase path.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Observable & Measurable
+Log errors and page-level performance metrics. Failures should be visible in CI and runtime dashboards.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Constraints & Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Technology: Single-page web app using a modern framework (React, Vue, or similar) with TypeScript preferred.
+- Browser Support: Latest two versions of major browsers (Chrome, Edge, Firefox, Safari).
+- Accessibility: Meet WCAG 2.1 AA for primary user flows.
+- Performance: Keep initial page load (first contentful paint) under 2s on a typical 3G/4G mobile profile; bundle sizes should be reasonable (use code-splitting).
+- Security: Use HTTPS; follow OWASP best practices for client apps; do not embed secrets in source.
+- Internationalization: Prepare strings for translation where applicable (keep simple for MVP).
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Source control: Use feature branches and open a PR for review before merging to main.
+- Code quality: Enforce linting and formatting (ESLint/Prettier) in CI.
+- Tests: Run unit tests and the E2E smoke test in CI; PRs must not reduce test coverage of critical flows.
+- CI/CD: On merge to main run build, tests, and deploy to staging; production deploy requires a passing staging smoke test and manual approval.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- The constitution is the source of truth for project-level requirements.
+- Changes to this document require a short proposal in the project board and approval from at least one reviewer and one product owner.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-10-01 | **Last Amended**: 2025-10-01
+``` 
